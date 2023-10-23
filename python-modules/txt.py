@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #Now make sure you can answer these questions to complete this chapter
 #Why Python is awesome
 
