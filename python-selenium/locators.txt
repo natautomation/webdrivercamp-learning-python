@@ -31,8 +31,20 @@ Modify the XPath from task #1 to make it dynamic:
 
 Modify the XPath from task #2 to select specific checkboxes of the specific section
 
+3-adidas
+//*[@id="x-refine__group_1__1"]/ul/li[1]/div/a/div 
+or 
+//*[@id="x-refine__group_1__1"]/ul/li[1]/div/a/div/span/input
+or
+//ul[@class="x-refine__left__nav"]/li//h3[text()="Brand"]/../..//span[text()="adidas"]/../../../span
 
 
+3-Blue
+//*[@id="x-refine__group_1__1"]/ul/li[1]/div/a/div
+or
+//*[@id="x-refine__group_1__2"]/ul/li[3]/div/a/div/span/input
+or
+//ul[@class="x-refine__left__nav"]/li//h3[text()="Color"]/../..//span[text()="Blue"]/../../../span
 
 4. 
 4. Make it case insensitive
@@ -53,7 +65,6 @@ Or
 textShoes = (NodeList) xPath.compile("//*[@id="srp-river-results"]/ul/IsReverseEvent[translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='true']").evaluate(doc, XPathConstants.NODESET);
 
 5
-5. Pause it
 
 Write an XPath to collect the links in the dropdown My eBay here ebay / shoes
 	•	To see the links pause the page when dropdown is open
