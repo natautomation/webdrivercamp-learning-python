@@ -1,0 +1,99 @@
+0.Write an XPath that collects all the header links here ebay
+
+Answers:
+0a. Headers all :
+//*[@id="gh-top"] 
+
+0b. 
+ //header/div/ul/li
+   
+
+1. Write an XPath that collects left navigation blocks here ebay / shoes
+
+1Answer: 
+ /html/body/div[5]/div[3]/ul/li[1]/ul
+
+
+
+2. Now make it dynamic
+
+Modify the XPath from task #1 to make it dynamic:
+	•	So we can select a specific section based on the header of the section (color, brand)
+
+2answer
+//h3[normalize-space()='Color']
+//h3[normalize-space()='Brand']
+
+
+
+3
+3. Add the checkboxes
+
+Modify the XPath from task #2 to select specific checkboxes of the specific section
+
+
+
+
+4. 
+4. Make it case insensitive
+
+Write an XPath to collect all items here ebay / shoes
+	•	Add an option to select an item by title (?not clear?)
+	◦	This XPath should work with passing a title in lower case only
+
+4Answer:
+//*[@id="srp-river-main"]
+Or 
+//*[@id="srp-river-results"]/ul
+
+//*[@id="srp-river-results"]/ul and //a[translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz') = ‘shoes’]
+
+(Not sure how it works but found here: https://stackoverflow.com/questions/1965529/xpath-how-do-you-do-a-lowercase-call-in-xpath  )
+
+textShoes = (NodeList) xPath.compile("//*[@id="srp-river-results"]/ul/IsReverseEvent[translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='true']").evaluate(doc, XPathConstants.NODESET);
+
+5
+5. Pause it
+
+Write an XPath to collect the links in the dropdown My eBay here ebay / shoes
+	•	To see the links pause the page when dropdown is open
+	•	When you work with the XPath - the dropdown should not close
+	•	As the answer to this question - write how you pause the page next to XPath
+5answer:
+//a[text()="My eBay"]
+Or
+//a[text()="My eBay"]/..//li/a 
+
+In order to pause the page need go to DevTools=> Sources tab, hover over mouse on the menu "My eBay”, press F8 key on the keyboard
+
+5. Give me what I want
+
+	•	Go here ebay / watches 
+	•	Find an XPath to collect watches that are:
+	◦	$20 < price < $200
+	◦	5.0 out of 5 stars and reviews count >= 10
+	◦	Free shipping
+	◦	Are on Sale: 20% 0ff and more
+Note: It should be one single XPath to complete the task
+
+5.1.1.
+//*[@id="srp-river-results"]/ul
+
+From page :
+https://www.ebay.com/sch/i.html?_from=R40&_nkw=watch&_sacat=0&Department=Men&_dcat=31387&_udlo=19&_udhi=200&rt=nc
+
+5.1.2.
+//*[@id="srp-river-results"]/ul
+
+https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2334524.m570.l1313&_nkw=watch&_sacat=0&LH_TitleDesc=0&_fsrp=1&rt=nc&_odkw=watch%20top%20review&_osacat=0&_dcat=31387&_oaa=1
+
+
+5.1.3.
+//*[@id="srp-river-results"]/ul
+
+https://www.ebay.com/sch/i.html?_from=R40&_nkw=watch&_sacat=0&Department=Men&_dcat=31387&rt=nc&LH_FS=1
+
+5.1.4.
+
+//*[@id="srp-river-results"]/ul
+//li[@id=’s’%’]//div[@class='s-item__wrapper clearfix']
